@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:27:42 by ychagri           #+#    #+#             */
-/*   Updated: 2024/01/14 21:32:00 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/01/22 19:20:36 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int check_sign(char *str, int j)
 {
 	if (j == 0)
 	{
-		if (str[j+ 1] >= '0' && str[j + 1] <= '9')
+		if (ft_isdigit(str[j + 1]))
 			return (1);
 	}
 	if ((str[j - 1] == ' ' || str[j - 1] == '\t' ) && (str[j + 1] <= '9' && str[j + 1] >= '0'))
@@ -35,7 +35,7 @@ int	check_av(int ac,char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (av[i][j] == ' ' || av[i][j] == '\t' || (av[i][j] >= '0' && av[i][j] <= '9')
+			if (av[i][j] == ' ' || av[i][j] == '\t' || (ft_isdigit(av[i][j]))
 				||((av[i][j] == '-' || av[i][j] == '+') && check_sign(av[i],j) ))
 				j++;
 			else
@@ -48,9 +48,10 @@ int	check_av(int ac,char **av)
 
 int	main(int ac, char **av)
 {
-	int i;
-	int j;
+	int		i;
 	i = 1;
+	t_list	*head = NULL;
+	t_list	*new = NULL;
 	char *str = malloc(1);
 	char	**split = NULL;
 	if (!check_av(ac, av))
@@ -63,9 +64,19 @@ int	main(int ac, char **av)
 		str = ft_strjoin(str, av[i]);
 		i++;
 	}
-	//printf("%s\n", str);
+	i = 0;
 	split = ft_split(str, ' ');
-	for (i = 0; split[i] ;i++)
-		printf("%s\n", split[i]);
+	head = ft_lstnew(ft_atoi(split[i++]));
+	while (split[i])
+	{
+		new = ft_lstnew(ft_atoi(split[i]));
+		ft_lstadd_back(&head, new);
+		i++;
+	}
+	while (head)
+	{
+		printf("%d\n", head->content);
+		head = head->next;
+	}
 	return 0;
 }
