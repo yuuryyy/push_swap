@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/01/14 23:22:21 by ychagri          ###   ########.fr        #
+#    Updated: 2024/01/27 11:57:11 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ $(NAME): $(OBJS) lib
 
 clean:
 	make clean -C libft
-	
 	rm -rf $(OBJS) 
 	
 
