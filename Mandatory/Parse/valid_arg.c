@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 19:32:34 by ychagri           #+#    #+#             */
-/*   Updated: 2024/01/31 22:19:41 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/02 18:09:32 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	check_av(char **av)
 	}
 	return (1);
 }
+
 int	valid_arg(int ac, char **av)
 {
 	if (ac <= 1)

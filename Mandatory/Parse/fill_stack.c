@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:47 by ychagri           #+#    #+#             */
-/*   Updated: 2024/01/31 22:08:36 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/02 18:08:52 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	checkdouble(t_list *lst)
 	}
 	return (1);
 }
+
 int	limit(char **str)
 {
 	int	i;
@@ -49,16 +50,17 @@ int	limit(char **str)
 	}
 	return (1);
 }
+
 int	check_n_fill(t_list **stack_a, char **av)
 {
 	int		i;
-	t_list	*stack;
-	char	*str = malloc(1);
-	char	**split = NULL;
+	char	*str;
+	char	**split;
 
 	i = 1;
+	str = malloc(1);
+	split = NULL;
 	str[0] = '\0';
-	stack = *stack_a;
 	while (av[i])
 	{
 		str = ft_strjoin(str, av[i]);
@@ -67,19 +69,12 @@ int	check_n_fill(t_list **stack_a, char **av)
 	i = 0;
 	split = ft_split(str, ' ');
 	free(str);
-	if (!split)
+	if (!split || !limit(split))
 		return (0);
-	if (!limit(split))
-	{
-		return (0);
-	}
-	stack = ft_lstnew(ft_atoi(split[i++]));
+	*stack_a = ft_lstnew(ft_atoi(split[i++]));
 	while (split[i])
-	{
-		ft_lstadd_back(&stack,ft_lstnew(ft_atoi(split[i])));
-		i++;
-	}
-	if (!checkdouble(stack))
+		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(split[i++])));
+	if (!checkdouble(*stack_a))
 		return (0);
 	return (1);
 }
