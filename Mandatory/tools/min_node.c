@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_elem_sort.c                                      :+:      :+:    :+:   */
+/*   min_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 22:10:51 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 16:14:14 by ychagri          ###   ########.fr       */
+/*   Created: 2024/02/23 18:58:43 by ychagri           #+#    #+#             */
+/*   Updated: 2024/02/23 18:59:20 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	two_sort(t_list **lst)
+t_list	*min_node(t_list *stack)
 {
-	t_list	*tmp;
+	t_list	*min;
 
-	tmp = *lst;
-	if (!*lst || !lst)
-		return ;
-	if (tmp->content > tmp->next->content)
-		swap(lst, SA);
+	if (!stack)
+		return (NULL);
+	min = stack;
+	while (stack)
+	{
+		if (min->content > stack->content)
+			min = stack;
+		stack = stack->next;
+	}
+	return (min);
 }

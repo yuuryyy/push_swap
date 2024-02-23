@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:47 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 01:55:45 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 16:08:32 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	checkdouble(t_list *lst)
 	}
 	return (1);
 }
+
 void	free_array(char **str)
 {
 	int	i;
@@ -41,13 +42,12 @@ void	free_array(char **str)
 	i = 0;
 	if (!str || !*str)
 		return ;
-	while(str[i])
+	while (str[i])
 	{
 		free(str[i]);
 		str[i] = NULL;
 		i++;
 	}
-	
 }
 
 int	limit(char **str)

@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 22:08:35 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/22 18:10:14 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 20:18:37 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,13 @@ void	three_sort(t_list **lst)
 	int		a;
 	int		b;
 	int		c;
-	t_list	*tmp;
+	t_list	*max;
 
-	tmp = *lst;
-	a = tmp->content;
-	b = tmp->next->content;
-	tmp = tmp->next;
-	c = tmp->next->content;
-
-	if (a > b && a < c)
-		swap(lst, SA);
-	else if (a > b && b > c)
-	{
-		swap(lst, SA);
-		reverse_rotate(lst, RRA);
-	}
-	else if (a < b && b > c && c > a)
-	{
-		swap(lst, SA);
+	max = max_node(*lst);
+	if (max == *lst)
 		rotate(lst, RA);
-	}
-	else if (a > c && b > a)
+	else if (max == (*lst)->next)
 		reverse_rotate(lst, RRA);
-	else
-		rotate(lst, RA);
+	if ((*lst)->content > (*lst)->next->content)
+		swap(lst, SA);
 }

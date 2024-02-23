@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:48:28 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 01:25:29 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 18:59:36 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,23 @@
 # define RRB 1
 # define RRR 2
 
-
-int	valid_arg(int ac, char **av);
-int	check_n_fill(t_list **stack_a, char **av);
-int	a_is_sorted(t_list *stack_a);
+int		valid_arg(int ac, char **av);
+int		check_n_fill(t_list **stack_a, char **av);
+int		a_is_sorted(t_list *stack_a);
 
 void	two_sort(t_list **lst);
 void	three_sort(t_list **lst);
 void	free_stack(t_list **stack);
 
-void	swap(t_list **lst , int flag);
+void	swap(t_list **lst, int flag);
 void	ss(t_list **stack_a, t_list **stack_b);
 void	push(t_list **from, t_list **to, int flag);
-void	rotate(t_list	**lst, int flag);
+void	rotate(t_list **lst, int flag);
 void	rr(t_list **stack_a, t_list **stack_b);
 void	reverse_rotate(t_list **lst, int flag);
 void	rrr(t_list **stack_a, t_list **stack_b);
+
+t_list	*max_node(t_list *stack);
+t_list	*min_node(t_list *stack);
 
 #endif

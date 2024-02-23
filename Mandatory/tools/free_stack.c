@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 01:05:33 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 01:33:01 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 18:16:49 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	free_stack(t_list **stack)
 	{
 		tmp = current->next;
 		free(current);
+		current = NULL;
 		current = tmp;
 	}
-	free(current);
-	current = NULL;
 }

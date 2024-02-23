@@ -6,14 +6,20 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:27:42 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 02:43:19 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 19:00:22 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Inc/push.h"
 
+void	f()
+{
+	system("leaks push_swap");
+}
+
 int	main(int ac, char **av)
 {
+	//atexit(f);
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		size;
@@ -33,23 +39,15 @@ int	main(int ac, char **av)
 	if (!a_is_sorted(stack_a))
 		return (0);
 	else if (size == 2)
-		return (two_sort(&stack_a), 0);// free after
+		two_sort(&stack_a);// free after
 	else if (size == 3)
-		return (three_sort(&stack_a), 0);
-	rotate(&stack_a, RA);
-	rotate(&stack_a, RA);
-	//free_stack(&stack_a);
-
-	while (stack_a)
-	{
-		printf("-------%d\n", stack_a->content);
-		stack_a = stack_a->next;
-	}
-	//while (stack_b)
-	//{
-	//	printf("++++++%d\n", stack_b->content);
-	//	stack_b = stack_b->next;
-	//}
-	
+		three_sort(&stack_a);
+	reverse_rotate(&stack_a, RRA);
+	printf("%d\n", max_node(stack_a)->content);
+	printf("%d\n", min_node(stack_a)->content);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	stack_a = NULL;
+	stack_b = NULL;
 	return (0);
 }

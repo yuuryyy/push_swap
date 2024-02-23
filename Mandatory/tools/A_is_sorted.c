@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 20:29:04 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/19 22:05:47 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 18:15:53 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	a_is_sorted(t_list *stack_a)
 	int	pre;
 
 	if (!stack_a)
-		return(0);
+		return (0);
 	pre = stack_a->content;
 	while (stack_a->next)
 	{
