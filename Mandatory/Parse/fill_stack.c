@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:47 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/02 18:08:52 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 01:55:45 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,21 @@ int	checkdouble(t_list *lst)
 		lst = lst->next;
 	}
 	return (1);
+}
+void	free_array(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (!str || !*str)
+		return ;
+	while(str[i])
+	{
+		free(str[i]);
+		str[i] = NULL;
+		i++;
+	}
+	
 }
 
 int	limit(char **str)
@@ -71,9 +86,10 @@ int	check_n_fill(t_list **stack_a, char **av)
 	free(str);
 	if (!split || !limit(split))
 		return (0);
-	*stack_a = ft_lstnew(ft_atoi(split[i++]));
 	while (split[i])
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(split[i++])));
+	free_array(split);
+	free(split);
 	if (!checkdouble(*stack_a))
 		return (0);
 	return (1);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra_rrb.c                                          :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:31:49 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/22 17:42:54 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 02:41:11 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ void	reverse_rotate(t_list **lst, int flag)
 	{
 		if (tmp->next == NULL)
 		{
-			ft_lstadd_front(lst, ft_lstnew(tmp->content));
-			free(tmp);
-			tmp = NULL;
+			ft_lstadd_front(lst, tmp);
 			if (previous != NULL) 
 				previous->next = NULL;
 			break ;
@@ -38,7 +36,7 @@ void	reverse_rotate(t_list **lst, int flag)
 	if (flag == RRA)
 		ft_putstr_fd("rra\n", 1);
 	else if (flag == RRB)
-		ft_putstr_fd("rra\n", 1);
+		ft_putstr_fd("rrb\n", 1);
 }
 //int main()
 //{

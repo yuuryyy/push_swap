@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/02/22 20:00:17 by ychagri          ###   ########.fr        #
+#    Updated: 2024/02/23 02:48:49 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME := push_swap
 
 CC := cc
 
-CFLAGS := -Wall -Werror -Wextra -fsanitize=address
+CFLAGS := -Wall -Werror 
+#-Wextra 
+#-fsanitize=address
 SRCS	:= main.c \
 		   Rules/push.c \
 		   Rules/rotate.c \
@@ -28,6 +30,7 @@ SRCS	:= main.c \
 		   Sorting/2_elem_sort.c \
 		   Sorting/3_elem_sort.c \
 		   tools/A_is_sorted.c \
+		   tools/free_stack.c \
 
 OBJS 	:= $(SRCS:.c=.o)
 
@@ -55,6 +58,13 @@ fclean: clean
 
 re : fclean all 
 
+git : 
+	git add .
+	git commit -m "push_swap_fixs"
+	git push
+
 .PHONY: clean re fclean
+
+
 
 #relink

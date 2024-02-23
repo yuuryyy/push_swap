@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 14:46:56 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/22 20:27:15 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 02:37:49 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,16 @@
 void	push(t_list **from, t_list **to, int flag)
 {
 	t_list	*tmp;
-	t_list	*node;
-	int		n;
 
 	if (!from || !*from || !to)
 		return ;
 	tmp = *from;
-	n = tmp->content;
 	if (tmp->next)
 		*from = tmp->next;
 	else
 		*from = NULL;
-	free(tmp);
-	node = ft_lstnew(n);
-	ft_lstadd_front(to, node);
+	tmp->next = NULL;
+	ft_lstadd_front(to, tmp);
 	if (flag == PA)
 		ft_putstr_fd("pa\n", 1);
 	else if (flag == PB)
@@ -37,7 +33,7 @@ void	push(t_list **from, t_list **to, int flag)
 }
 //int main()
 //{
-//	t_list	*head;
+//	t_list	*head;	
 //	t_list	*node;
 //	t_list	*node1;
 //	t_list	*node2;

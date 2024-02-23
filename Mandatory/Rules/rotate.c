@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:15:03 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/22 17:05:48 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 02:45:13 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 void	rotate(t_list	**lst, int flag)
 {
 	t_list	*tmp;
-	int		n;
 
 	tmp = *lst;
 	if (!tmp || !lst)
 		return ;
 	if (tmp->next)
 	{
-		n = tmp->content;
 		*lst = tmp->next;
-		free(tmp);
-		tmp = NULL;
-		ft_lstadd_back(lst, ft_lstnew(n));
+		tmp->next = NULL;
+		ft_lstadd_back(lst, tmp);
 	}
 	if (flag == RA)
 		ft_putstr_fd("ra\n", 1);
