@@ -6,27 +6,34 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 14:46:56 by ychagri           #+#    #+#             */
-/*   Updated: 2024/01/31 22:18:28 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/22 20:27:15 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	push(t_list **from, t_list **to)
+void	push(t_list **from, t_list **to, int flag)
 {
-	t_list	*tmpa;
+	t_list	*tmp;
 	t_list	*node;
 	int		n;
 
 	if (!from || !*from || !to)
 		return ;
-	tmpa = *from;
-	n = tmpa->content;
-	if (tmpa->next)
-		*from = tmpa->next;
-	free(tmpa);
+	tmp = *from;
+	n = tmp->content;
+	if (tmp->next)
+		*from = tmp->next;
+	else
+		*from = NULL;
+	free(tmp);
 	node = ft_lstnew(n);
 	ft_lstadd_front(to, node);
+	if (flag == PA)
+		ft_putstr_fd("pa\n", 1);
+	else if (flag == PB)
+		ft_putstr_fd("pb\n", 1);
+	
 }
 //int main()
 //{

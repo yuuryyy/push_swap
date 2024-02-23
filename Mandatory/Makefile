@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/01/31 22:14:39 by ychagri          ###   ########.fr        #
+#    Updated: 2024/02/22 20:00:17 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,20 @@ NAME := push_swap
 
 CC := cc
 
-CFLAGS := -Wall -Wextra -Werror -fsanitize=address
-
+CFLAGS := -Wall -Werror -Wextra -fsanitize=address
 SRCS	:= main.c \
 		   Rules/push.c \
-		   Rules/ra_rb.c \
-		   Rules/rra_rrb.c \
-		   Rules/swap.c parse/fill_stack.c \
+		   Rules/rotate.c \
+		   Rules/rr.c \
+		   Rules/swap.c \
+		   Rules/ss.c \
+		   Rules/reverse_rotate.c \
+		   Rules/rrr.c \
 		   parse/valid_arg.c \
+		   parse/fill_stack.c \
+		   Sorting/2_elem_sort.c \
+		   Sorting/3_elem_sort.c \
+		   tools/A_is_sorted.c \
 
 OBJS 	:= $(SRCS:.c=.o)
 
@@ -50,3 +56,5 @@ fclean: clean
 re : fclean all 
 
 .PHONY: clean re fclean
+
+#relink

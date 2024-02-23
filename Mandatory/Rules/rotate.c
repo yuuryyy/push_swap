@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra_rb.c                                            :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:15:03 by ychagri           #+#    #+#             */
-/*   Updated: 2024/01/31 22:18:52 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/22 17:05:48 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	ra_rb(t_list	**lst)
+void	rotate(t_list	**lst, int flag)
 {
 	t_list	*tmp;
 	int		n;
-	t_list	*node;
 
 	tmp = *lst;
+	if (!tmp || !lst)
+		return ;
 	if (tmp->next)
 	{
 		n = tmp->content;
 		*lst = tmp->next;
 		free(tmp);
 		tmp = NULL;
-		node = ft_lstnew(n);
-		ft_lstadd_back(lst, node);
+		ft_lstadd_back(lst, ft_lstnew(n));
 	}
+	if (flag == RA)
+		ft_putstr_fd("ra\n", 1);
+	else if (flag == RB)
+		ft_putstr_fd("rb\n", 1);
 }
 //int main()
 //{

@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.h                                             :+:      :+:    :+:   */
+/*   A_is_sorted.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 13:48:28 by ychagri           #+#    #+#             */
-/*   Updated: 2024/01/14 21:33:04 by ychagri          ###   ########.fr       */
+/*   Created: 2024/02/17 20:29:04 by ychagri           #+#    #+#             */
+/*   Updated: 2024/02/19 22:05:47 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_H
-# define PUSH_H
+#include "../Inc/push.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
+int	a_is_sorted(t_list *stack_a)
+{
+	int	pre;
 
-
-#endif
+	if (!stack_a)
+		return(0);
+	pre = stack_a->content;
+	while (stack_a->next)
+	{
+		if (pre > stack_a->next->content)
+			return (1);
+		stack_a = stack_a->next;
+		pre = stack_a->content;
+	}
+	return (0);
+}

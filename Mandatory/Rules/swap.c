@@ -6,13 +6,13 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 13:09:38 by ychagri           #+#    #+#             */
-/*   Updated: 2024/01/31 22:19:17 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/22 20:22:37 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	swap(int *a, int *b)
+void	swap2(int *a, int *b)
 {
 	int	tmp;
 
@@ -21,26 +21,25 @@ void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	swap_a(t_list **lst)
+void	swap(t_list **lst , int flag)
 {
-	t_list	*previous;
-	t_list	*tmp;
+	t_list	*second;
+	t_list	*head;
 
 	if (!lst || !*lst)
 		return ;
-	tmp = *lst;
-	while (tmp)
-	{
-		previous = tmp;
-		tmp = tmp->next;
-		if (tmp)
-		{
-			swap(&previous->content, &tmp->content);
-			return ;
-		}
-		else
-			return ;
-	}
+	head = *lst;
+	second = head;
+	head = second->next;
+	if (head)
+		swap2(&second->content, &head->content);
+	else
+		return ;
+	if (flag == SA)
+		ft_putstr_fd("sa\n",1);
+	else if (flag == SB)
+		ft_putstr_fd("sb\n",1);
+	
 }
 
 //int main()

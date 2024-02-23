@@ -6,18 +6,16 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:31:49 by ychagri           #+#    #+#             */
-/*   Updated: 2024/01/31 22:19:09 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/22 17:42:54 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	rra_rrb(t_list **lst)
+void	reverse_rotate(t_list **lst, int flag)
 {
 	t_list	*tmp;
-	t_list	*node;
 	t_list	*previous;
-	int		n;
 
 	previous = NULL;
 	tmp = *lst;
@@ -27,16 +25,20 @@ void	rra_rrb(t_list **lst)
 	{
 		if (tmp->next == NULL)
 		{
-			n = tmp->content;
+			ft_lstadd_front(lst, ft_lstnew(tmp->content));
 			free(tmp);
-			node = ft_lstnew(n);
-			ft_lstadd_front(lst, node);
-			previous->next = NULL;
+			tmp = NULL;
+			if (previous != NULL) 
+				previous->next = NULL;
 			break ;
 		}
 		previous = tmp;
 		tmp = tmp->next;
 	}
+	if (flag == RRA)
+		ft_putstr_fd("rra\n", 1);
+	else if (flag == RRB)
+		ft_putstr_fd("rra\n", 1);
 }
 //int main()
 //{
