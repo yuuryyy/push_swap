@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/02/23 02:49:06 by ychagri          ###   ########.fr        #
+#    Updated: 2024/02/23 02:49:52 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ fclean: clean
 
 re : fclean all 
 
-git : 
+git : fclean
 	git add .
 	git commit -m "push_swap_fixs"
 	git status
