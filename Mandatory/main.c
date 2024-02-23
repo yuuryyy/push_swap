@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:27:42 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 19:00:22 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:25:20 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,12 @@ int	main(int ac, char **av)
 		two_sort(&stack_a);// free after
 	else if (size == 3)
 		three_sort(&stack_a);
-	reverse_rotate(&stack_a, RRA);
-	printf("%d\n", max_node(stack_a)->content);
-	printf("%d\n", min_node(stack_a)->content);
+	index_nodes(&stack_a);
+	while(stack_a)
+	{
+		printf("%d\n", stack_a->index);
+		stack_a = stack_a->next;
+	}
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	stack_a = NULL;

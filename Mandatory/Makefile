@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/02/23 18:59:49 by ychagri          ###   ########.fr        #
+#    Updated: 2024/02/23 22:19:01 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME := push_swap
 
 CC := cc
 
-CFLAGS := -Wall -Werror -Wextra -fsanitize=address
+CFLAGS := -Wall -Werror 
+#-Wextra -fsanitize=address
 SRCS	:= main.c \
 		   Rules/push.c \
 		   Rules/rotate.c \
@@ -30,7 +31,8 @@ SRCS	:= main.c \
 		   tools/A_is_sorted.c \
 		   tools/free_stack.c \
 		   tools/max_node.c \
-		   tools/min_node.c
+		   tools/min_node.c \
+		   tools/get_position.c \
 
 OBJS 	:= $(SRCS:.c=.o)
 

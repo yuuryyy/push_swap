@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_elem_sort.c                                      :+:      :+:    :+:   */
+/*   get_position.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 22:08:35 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 20:31:55 by ychagri          ###   ########.fr       */
+/*   Created: 2024/02/23 22:03:22 by ychagri           #+#    #+#             */
+/*   Updated: 2024/02/23 23:05:30 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	three_sort(t_list **lst)
+void	index_nodes(t_list **stack)
 {
-	t_list	*max;
+	t_list	*lst;
+	t_list	*tmp;
+	int		nbr;
+	int		position;
 
-	max = max_node(*lst);
-	if (max == *lst)
-		rotate(lst, RA);
-	else if (max == (*lst)->next)
-		reverse_rotate(lst, RRA);
-	if ((*lst)->content > (*lst)->next->content)
-		swap(lst, SA);
+	if (!*stack || !stack)
+		return ;
+	lst = *stack;
+	while (lst)
+	{
+		position = 0;
+		tmp = *stack;
+		nbr = lst->content;
+		while (tmp)
+		{
+			if (nbr > tmp->content)
+				position++;
+			tmp = tmp->next;
+		}
+		lst->index = position;
+		lst = lst->next;
+	}
 }

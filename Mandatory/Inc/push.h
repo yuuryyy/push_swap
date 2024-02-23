@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:48:28 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 18:59:36 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:16:02 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	rotate(t_list **lst, int flag);
 void	rr(t_list **stack_a, t_list **stack_b);
 void	reverse_rotate(t_list **lst, int flag);
 void	rrr(t_list **stack_a, t_list **stack_b);
+void	index_nodes(t_list **stack);
 
 t_list	*max_node(t_list *stack);
 t_list	*min_node(t_list *stack);
