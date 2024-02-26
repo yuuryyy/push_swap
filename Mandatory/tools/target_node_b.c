@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   target_node_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 01:05:33 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/25 18:15:34 by ychagri          ###   ########.fr       */
+/*   Created: 2024/02/24 05:37:55 by ychagri           #+#    #+#             */
+/*   Updated: 2024/02/25 18:51:13 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	free_stack(t_list **stack)
+void	target_node_b(t_list *stack_a, t_list *b_node)
 {
+	t_list	*target;
 	t_list	*tmp;
-	t_list	*current;
-
-	if (!stack || !*stack)
+	
+	tmp = stack_a;
+	if (!tmp || !b_node)
 		return ;
-	current = *stack;
-	tmp = current;
-	while (current)
+	target = min_node(tmp);
+	if (max_node(tmp)->content < b_node->content)
+		b_node->target_node = target;
+	else
 	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
+		target = max_node(tmp);
+		while (tmp)
+		{
+			if ( b_node->content < tmp->content 
+				&& tmp->content < target->content)
+					target = tmp;
+			tmp = tmp->next;
+		}
+		b_node->target_node = target;
 	}
 }

@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/02/23 22:19:01 by ychagri          ###   ########.fr        #
+#    Updated: 2024/02/25 17:59:52 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,9 @@ SRCS	:= main.c \
 		   tools/max_node.c \
 		   tools/min_node.c \
 		   tools/get_position.c \
+		   tools/target_node_a.c \
+		   tools/target_node_b.c \
+		   
 
 OBJS 	:= $(SRCS:.c=.o)
 

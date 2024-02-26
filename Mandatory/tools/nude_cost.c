@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   nude_cost.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 01:05:33 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/25 18:15:34 by ychagri          ###   ########.fr       */
+/*   Created: 2024/02/25 22:19:37 by ychagri           #+#    #+#             */
+/*   Updated: 2024/02/25 22:32:21 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	free_stack(t_list **stack)
+void	n_cost(t_list *node, t_list *stack_a)
 {
+	int		moves;
 	t_list	*tmp;
-	t_list	*current;
+	int		size;
+	t_list	*tmp_b;
+	int		size_b;
 
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	tmp = current;
-	while (current)
-	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
-	}
+	tmp = stack_a;
+	tmp_b = stack_b;
+	size = ft_lstsize(tmp);
+	size_b = ft_lstsize(tmp_b);
+	
 }

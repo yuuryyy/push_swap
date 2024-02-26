@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:27:42 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 22:25:20 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/25 19:07:16 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	f()
 
 int	main(int ac, char **av)
 {
-	//atexit(f);
+	atexit(f);
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		size;
@@ -34,23 +34,37 @@ int	main(int ac, char **av)
 			exit(1);
 	}
 	if (!check_n_fill(&stack_a, av))
-		return (ft_putstr_fd("Error\n", 0), 1);
+		return (ft_putstr_fd("Error\n", 0),free_stack(&stack_a) ,1);
 	size = ft_lstsize(stack_a);
 	if (!a_is_sorted(stack_a))
-		return (0);
+		return (free_stack(&stack_a), 0);
 	else if (size == 2)
-		two_sort(&stack_a);// free after
+		return (two_sort(&stack_a), free_stack(&stack_a), 0);
 	else if (size == 3)
-		three_sort(&stack_a);
+		return (three_sort(&stack_a),free_stack(&stack_a), 0);
 	index_nodes(&stack_a);
-	while(stack_a)
+	push(&stack_a,&stack_b, PB);
+	push(&stack_a,&stack_b, PB);
+	push(&stack_a,&stack_b, PB);
+	push(&stack_a,&stack_b, PB);
+	
+	t_list *tmp = stack_a;
+	while(tmp)
 	{
-		printf("%d\n", stack_a->index);
-		stack_a = stack_a->next;
+		target_node_a(stack_b, tmp);
+		printf("%d", tmp->content);
+		printf("----%d\n", tmp->target_node->content);
+		tmp = tmp->next;
+	}
+	tmp = stack_b;
+	while(tmp)
+	{
+		target_node_b(stack_a, tmp);
+		printf("%d", tmp->content);
+		printf("----%d\n", tmp->target_node->content);
+		tmp = tmp->next;
 	}
 	free_stack(&stack_a);
 	free_stack(&stack_b);
-	stack_a = NULL;
-	stack_b = NULL;
 	return (0);
 }
