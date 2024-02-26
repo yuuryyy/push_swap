@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/02/26 17:25:44 by ychagri          ###   ########.fr        #
+#    Updated: 2024/02/26 18:32:50 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME := push_swap
 
 CC := cc
 
-CFLAGS := -Wall -Werror 
+CFLAGS := -g -Wall -Werror 
 #-Wextra -fsanitize=address
 SRCS	:= Mandatory/main.c \
 		   Mandatory/Rules/push.c \
@@ -43,7 +43,7 @@ LIBRARY := lib/libft.a
 
 all	: $(NAME)
 	
-lib	:
+lib :
 	make -C lib
 
 $(NAME): $(OBJS) lib
@@ -68,4 +68,4 @@ git : fclean
 	git commit -m "push_swap_fixs"
 	git push
 
-.PHONY: clean re fclean
+.PHONY: clean re fclean lib

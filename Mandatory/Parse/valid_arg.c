@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 19:32:34 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/02 18:09:32 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/26 18:18:29 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	check_sign(char *str, int j)
 			return (1);
 	}
 	if ((str[j - 1] == ' ' || str[j - 1] == '\t' )
-		&& (str[j + 1] <= '9' && str[j + 1] >= '0'))
+		&& ft_isdigit(str[j + 1]))
 		return (1);
 	return (0);
 }

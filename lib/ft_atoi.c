@@ -6,18 +6,18 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:58:56 by ychagri           #+#    #+#             */
-/*   Updated: 2023/11/17 18:18:20 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/26 20:17:10 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
 	long long	i;
 	int			sign;
 	long long	res;
-	long long	temp; 
+	long long	temp;
 
 	i = 0;
 	sign = 1;
@@ -39,9 +39,4 @@ int	ft_atoi(char *str)
 			return (0);
 	}
 	return (res * sign);
-}
-int main(){
-	char nbr[] = "214748364888";
-	printf("%d\n", atoi(nbr));
-	printf("%d\n", ft_atoi(nbr));
 }

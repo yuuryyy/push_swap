@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 05:37:55 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/25 18:51:13 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/26 20:23:34 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	target_node_b(t_list *stack_a, t_list *b_node)
 {
 	t_list	*target;
 	t_list	*tmp;
-	
+
 	tmp = stack_a;
 	if (!tmp || !b_node)
 		return ;
@@ -28,9 +28,9 @@ void	target_node_b(t_list *stack_a, t_list *b_node)
 		target = max_node(tmp);
 		while (tmp)
 		{
-			if ( b_node->content < tmp->content 
+			if (b_node->content < tmp->content
 				&& tmp->content < target->content)
-					target = tmp;
+				target = tmp;
 			tmp = tmp->next;
 		}
 		b_node->target_node = target;
