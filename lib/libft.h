@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 19:08:16 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/26 20:17:44 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/29 22:15:51 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 	struct s_list	*target_node;
 	int				index;
 	int				cost;
+	int				pos;
 }					t_list;
 
 long	ft_atoi(char *str);

@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:27:42 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/26 20:09:18 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/02/29 22:46:29 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,18 @@ int	main(int ac, char **av)
 		return (two_sort(&stack_a), free_stack(&stack_a), 0);
 	else if (size == 3)
 		return (three_sort(&stack_a),free_stack(&stack_a), 0);
-	//index_nodes(&stack_a);
-	//push(&stack_a,&stack_b, PB);
-	//push(&stack_a,&stack_b, PB);
-	//push(&stack_a,&stack_b, PB);
-	//push(&stack_a,&stack_b, PB);
+	index_nodes(&stack_a);
+	push(&stack_a,&stack_b, PB);
+	push(&stack_a,&stack_b, PB);
+	push(&stack_a,&stack_b, PB);
 	t_list *tmp = stack_a;
 	while(tmp)
 	{
-		//target_node_a(stack_b, tmp);
-		printf("%d\n", tmp->content);
-		//printf("----%d\n", tmp->target_node->content);
+		target_node_a(stack_b, tmp);
+		nude_cost(tmp, stack_a, tmp->target_node, stack_b);
+		printf("%d", tmp->content);
+		printf("%d", tmp->pos);
+		printf("----%d\n", tmp->cost);
 		tmp = tmp->next;
 	}
 	//while(tmp)

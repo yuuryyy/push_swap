@@ -5,24 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/25 22:19:37 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/25 22:32:21 by ychagri          ###   ########.fr       */
+/*   Created: 2024/02/28 18:49:56 by ychagri           #+#    #+#             */
+/*   Updated: 2024/02/29 22:31:20 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	n_cost(t_list *node, t_list *stack_a)
+char	*median_check(t_list *node, t_list *stack)
 {
-	int		moves;
 	t_list	*tmp;
 	int		size;
-	t_list	*tmp_b;
-	int		size_b;
+	int		i;
 
-	tmp = stack_a;
-	tmp_b = stack_b;
+	tmp = stack;
+	if (!node || !stack)
+		return (NULL);
 	size = ft_lstsize(tmp);
-	size_b = ft_lstsize(tmp_b);
+	i = 0;
+	while (tmp != node)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	if (i < size / 2)
+	{
+		node->pos = i;
+		return ("above");
+	}
+	else
+	{
+		node->pos = size - i;
+		return ("below");
+	}
 	
+}
+int	cost(int a, int b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+void	nude_cost(t_list *node, t_list *stack, t_list *target, t_list *t_stack)
+{
+	t_list	*tmp;
+	t_list	*t_tmp;
+	
+	tmp = stack;
+	t_tmp = t_stack;
+	if (!node || !stack || !target || !t_stack)
+		return ;
+	if (median_check(node, stack) == median_check (target, t_stack))
+		node->cost = cost(node->pos, target->pos);
+	else
+		node->cost = node->pos + target->pos;
 }
