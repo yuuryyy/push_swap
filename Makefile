@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/02/29 22:24:19 by ychagri          ###   ########.fr        #
+#    Updated: 2024/03/02 00:05:17 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,15 +28,15 @@ SRCS	:= Mandatory/main.c \
 		   Mandatory/parse/fill_stack.c \
 		   Mandatory/Sorting/2_elem_sort.c \
 		   Mandatory/Sorting/3_elem_sort.c \
+		   Mandatory/Sorting/sorting_algo.c \
 		   Mandatory/tools/A_is_sorted.c \
 		   Mandatory/tools/free_stack.c \
 		   Mandatory/tools/max_node.c \
 		   Mandatory/tools/min_node.c \
-		   Mandatory/tools/get_position.c \
 		   Mandatory/tools/target_node_a.c \
 		   Mandatory/tools/target_node_b.c \
 		   Mandatory/tools/nude_cost.c \
-		   
+		   Mandatory/tools/init_stack.c \
 
 OBJS 	:= $(SRCS:.c=.o)
 
