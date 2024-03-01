@@ -6,11 +6,30 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:49:56 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/01 15:55:31 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/01 21:09:10 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
+
+int	median(t_list *node, t_list *stack)
+{
+	t_list	*tmp;
+	int		size;
+	int		i;
+
+	tmp = stack;
+	if (!node || !stack)
+		return (0);
+	size = ft_lstsize(tmp);
+	i = 0;
+	while (tmp != node)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
 
 char	*median_check(t_list *node, t_list *stack)
 {
@@ -28,7 +47,7 @@ char	*median_check(t_list *node, t_list *stack)
 		i++;
 		tmp = tmp->next;
 	}
-	if (i <= size / 2)
+	if (i < size / 2)
 	{
 		node->pos = i;
 		return ("above");
@@ -59,6 +78,10 @@ void	nude_cost(t_list *node, t_list *stack, t_list *target, t_list *t_stack)
 		return ;
 	if (median_check(node, stack) == median_check (target, t_stack))
 		node->cost = cost(node->pos, target->pos);
+	else if (median_check(node, stack) != median_check (target, t_stack)
+		&& median(node, stack) == median(target, t_stack))
+		node->cost = median(node, stack);
+	
 	else
 		node->cost = node->pos + target->pos;
 }
