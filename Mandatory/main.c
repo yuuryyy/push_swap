@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:27:42 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/01 15:56:00 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/01 15:57:48 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,13 @@ int	main(int ac, char **av)
 	push(&stack_a,&stack_b, PB);
 	push(&stack_a,&stack_b, PB);
 	push(&stack_a,&stack_b, PB);
+	push(&stack_a,&stack_b, PB);
 
-	t_list *tmp = stack_a;
+	t_list *tmp = stack_b;
 	while(tmp)
 	{
-		target_node_a(stack_b, tmp);
-		nude_cost(tmp, stack_a, tmp->target_node, stack_b);
+		target_node_b(stack_a, tmp);
+		nude_cost(tmp, stack_b, tmp->target_node, stack_a);
 		printf("%d", tmp->content);
 		printf("----%d\n", tmp->cost);
 		tmp = tmp->next;
