@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:49:56 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/02 00:36:48 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/03 21:29:12 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*median_check(t_list *node, t_list *stack)
 		i++;
 		tmp = tmp->next;
 	}
-	if (i < size / 2)
+	if (i <= size / 2)
 	{
 		node->pos = i;
 		return ("above");

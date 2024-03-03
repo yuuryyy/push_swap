@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:48:28 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/02 00:25:39 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/03 22:44:54 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 int		valid_arg(int ac, char **av);
 int		check_n_fill(t_list **stack_a, char **av);
 int		a_is_sorted(t_list *stack_a);
+int		position(t_list *node, t_list *stack);
 
 void	two_sort(t_list **lst);
 void	three_sort(t_list **lst);
@@ -59,5 +60,8 @@ void	init_stack_b(t_list *node, t_list *stack_b, t_list *stack_a);
 
 t_list	*max_node(t_list *stack);
 t_list	*min_node(t_list *stack);
+t_list	*cheapest_node(t_list *stack);
+
+char	*median_check(t_list *node, t_list *stack);
 
 #endif

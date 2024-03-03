@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:27:42 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/02 00:33:21 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/03 22:19:20 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	main(int ac, char **av)
 	push(&stack_a,&stack_b, PB);
 	push(&stack_a,&stack_b, PB);
 	push(&stack_a,&stack_b, PB);
-	push(&stack_a,&stack_b, PB);
 
 	t_list *tmp = stack_a;
 	while(tmp)
@@ -55,15 +54,17 @@ int	main(int ac, char **av)
 		printf("----%d\n", tmp->cost);
 		tmp = tmp->next;
 	}
-	tmp = stack_b;
-		printf("\n");
-	while(tmp)
-	{
-		init_stack_b(tmp, stack_b, stack_a);
-		printf("%d", tmp->content);
-		printf("----%d\n", tmp->cost);
-		tmp = tmp->next;
-	}
+	tmp = cheapest_node(stack_a);
+	printf("%d\n", tmp->content);
+	//tmp = stack_b;
+	//	printf("\n");
+	//while(tmp)
+	//{
+	//	init_stack_b(tmp, stack_b, stack_a);
+	//	printf("%d", tmp->content);
+	//	printf("----%d\n", tmp->cost);
+	//	tmp = tmp->next;
+	//}
 	free_stack(&stack_a);
 	//free_stack(&tmp);
 	free_stack(&stack_b);

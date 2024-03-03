@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/03/02 00:05:17 by ychagri          ###   ########.fr        #
+#    Updated: 2024/03/03 22:14:14 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS	:= Mandatory/main.c \
 		   Mandatory/tools/target_node_b.c \
 		   Mandatory/tools/nude_cost.c \
 		   Mandatory/tools/init_stack.c \
+		   Mandatory/tools/cheapest_node.c
 
 OBJS 	:= $(SRCS:.c=.o)
 
