@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 21:16:59 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/04 20:06:45 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/04 21:31:27 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,5 @@ void	sorting_algo(t_list **stack_a, t_list **stack_b)
 	else
 		rrb(push_node, stack_a);
 }
+
+// arg="1 3 2" && ./push_swap $arg | ./checker_Mac $arg

@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:27:42 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/04 20:57:22 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/04 22:18:11 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,23 @@ int	main(int ac, char **av)
 	if (!valid_arg(ac, av) || valid_arg(ac, av) == 2 )
 	{
 		if (!valid_arg(ac, av))
-			return (ft_putstr_fd("Error\n", 0),free_stack(&stack_a), 1);
+			return (ft_putstr_fd("Error\n", 0),free_stack(stack_a)	,stack_a = NULL, 1);
 		else
 			exit(0);
 	}
 	if (!check_n_fill(&stack_a, av))
-		return (ft_putstr_fd("Error\n", 0),free_stack(&stack_a) ,1);
+		return (ft_putstr_fd("Error\n", 0),free_stack(stack_a)	,stack_a = NULL ,1);
 	size = ft_lstsize(stack_a);
 	if (!a_is_sorted(stack_a))
-		return (free_stack(&stack_a), 0);
+		return (free_stack(stack_a)	,stack_a = NULL, 0);
 	else if (size == 2)
-		return (two_sort(&stack_a), free_stack(&stack_a), 0);
+		return (two_sort(&stack_a), free_stack(stack_a)	,stack_a = NULL, 0);
 	else if (size == 3)
-		return (three_sort(&stack_a),free_stack(&stack_a), 0);
+		return (three_sort(&stack_a),free_stack(stack_a)	,stack_a = NULL, 0);
 	sorting_algo(&stack_a, &stack_b);
-	//t_list *tmp = stack_a;
-	//while(tmp)
-	//{
-	//	printf("%d", tmp->content);
-	//	printf("----%d\n", tmp->cost);
-	//	tmp = tmp->next;
-	//}
+
+	//printf("%p\n", stack_a);
+	//printf("%p\n", stack_b);
 		//init_stack_a(tmp, stack_a, stack_b);
 		//push_b(node, &stack_a, node->target_node, &stack_b);
 	//push_b(tmp, stack_a, tmp->target_node, stack_b);
@@ -64,9 +60,18 @@ int	main(int ac, char **av)
 	//}
 	//	printf("\n");
 	
-	free_stack(&stack_a);
+	free_stack(stack_a);
+	stack_a = NULL;
+	//t_list *tmp = stack_a;
+	//while(tmp)
+	//{
+	//	printf("|%d|\n", tmp->content);
+	//	tmp = tmp->next;
+	//}
+	//printf("%p\n",stack_a);
+	//printf("%p\n",stack_b);
 	
-	//free_stack(&tmp);
-	//free_stack(&stack_b);
+	//free_stack(tmp);
+	//free_stack(stack_b);
 	return (0);
 }
