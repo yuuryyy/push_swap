@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:15:03 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/23 02:45:13 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/04 16:13:25 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,21 @@ void	rotate(t_list	**lst, int flag)
 		ft_putstr_fd("ra\n", 1);
 	else if (flag == RB)
 		ft_putstr_fd("rb\n", 1);
+}
+
+void	ra(t_list *node, t_list **stack)
+{
+	if (!node || !stack)
+		return ;
+	while (node != *stack)
+		rotate(stack, RA);
+}
+void	rb(t_list *node, t_list **stack)
+{
+	if (!node || !stack)
+		return ;
+	while (node != *stack)
+		rotate(stack, RB);
 }
 //int main()
 //{

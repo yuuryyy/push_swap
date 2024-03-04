@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:49:56 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/03 21:29:12 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/04 00:26:21 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	position(t_list *node, t_list *stack)
 	return (i);
 }
 
-char	*median_check(t_list *node, t_list *stack)
+int	median_check(t_list *node, t_list *stack)
 {
 	t_list	*tmp;
 	int		size;
@@ -39,7 +39,7 @@ char	*median_check(t_list *node, t_list *stack)
 
 	tmp = stack;
 	if (!node || !stack)
-		return (NULL);
+		return (0);
 	size = ft_lstsize(tmp);
 	i = 0;
 	while (tmp != node)
@@ -50,12 +50,12 @@ char	*median_check(t_list *node, t_list *stack)
 	if (i <= size / 2)
 	{
 		node->pos = i;
-		return ("above");
+		return (0);
 	}
 	else
 	{
 		node->pos = size - i;
-		return ("below");
+		return (1);
 	}
 }
 

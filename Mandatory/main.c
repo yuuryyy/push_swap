@@ -6,20 +6,20 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:27:42 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/03 22:19:20 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/04 20:57:22 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Inc/push.h"
 
-void	f()
-{
-	system("leaks push_swap");
-}
+//void	f()
+//{
+//	system("leaks push_swap");
+//}
 
 int	main(int ac, char **av)
 {
-	atexit(f);
+	//atexit(f);
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		size;
@@ -42,31 +42,31 @@ int	main(int ac, char **av)
 		return (two_sort(&stack_a), free_stack(&stack_a), 0);
 	else if (size == 3)
 		return (three_sort(&stack_a),free_stack(&stack_a), 0);
-	push(&stack_a,&stack_b, PB);
-	push(&stack_a,&stack_b, PB);
-	push(&stack_a,&stack_b, PB);
-
-	t_list *tmp = stack_a;
-	while(tmp)
-	{
-		init_stack_a(tmp, stack_a, stack_b);
-		printf("%d", tmp->content);
-		printf("----%d\n", tmp->cost);
-		tmp = tmp->next;
-	}
-	tmp = cheapest_node(stack_a);
-	printf("%d\n", tmp->content);
-	//tmp = stack_b;
-	//	printf("\n");
+	sorting_algo(&stack_a, &stack_b);
+	//t_list *tmp = stack_a;
 	//while(tmp)
 	//{
-	//	init_stack_b(tmp, stack_b, stack_a);
 	//	printf("%d", tmp->content);
 	//	printf("----%d\n", tmp->cost);
 	//	tmp = tmp->next;
 	//}
+		//init_stack_a(tmp, stack_a, stack_b);
+		//push_b(node, &stack_a, node->target_node, &stack_b);
+	//push_b(tmp, stack_a, tmp->target_node, stack_b);
+	//printf("%d\n", stack_b->content);
+	//tmp = stack_b;
+	//init_stack_b(stack_b, stack_a);
+	//while(tmp)
+	//{
+	//	printf("%d", tmp->content);
+	//	printf("----%d\n", tmp->cost);
+	//	tmp = tmp->next;
+	//}
+	//	printf("\n");
+	
 	free_stack(&stack_a);
+	
 	//free_stack(&tmp);
-	free_stack(&stack_b);
+	//free_stack(&stack_b);
 	return (0);
 }
