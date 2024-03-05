@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 22:29:10 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/04 17:12:27 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/05 17:26:40 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_stack_b(t_list *stack_b, t_list *stack_a)
 		return ;
 	while (tmp_b)
 	{
-		target_node_b(tmp,tmp_b);
+		target_node_b(tmp, tmp_b);
 		nude_cost(tmp_b, stack_b, tmp_b->target_node, tmp);
 		tmp_b = tmp_b->next;
 	}

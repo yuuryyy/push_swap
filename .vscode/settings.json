@@ -4,6 +4,7 @@
 		"__functional_03": "c",
 		"functional": "c",
 		"libft.h": "c",
-		"push.h": "c"
+		"push.h": "c",
+		"type_traits": "c"
 	}
 }

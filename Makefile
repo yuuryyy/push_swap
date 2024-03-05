@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/03/04 22:30:23 by ychagri          ###   ########.fr        #
+#    Updated: 2024/03/04 22:48:49 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,10 +68,7 @@ re : fclean all
 
 test : 
 	@echo "               ______________TEST______________              "
-	./push_swap $(arg) | ./checker $(arg)
-
-debug :
-	./push_swap_debug $(arg)
+	./push_swap $(arg) 
 
 push : fclean
 	git add .

@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:54:59 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/04 20:02:57 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/05 17:49:32 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	rrr(t_list **stack_a, t_list **stack_b)
 	ft_putstr_fd("rrr\n", 1);
 }
 
-void	rrr_n(t_list **stack_a, t_list **stack_b, t_list *node_a, t_list *node_b)
+void	rrrn(t_list **stack_a, t_list **stack_b, t_list *node_a, t_list *node_b)
 {
 	if (!*stack_a || !stack_a || !stack_b || !*stack_b || !node_a || !node_b)
 		return ;

@@ -6,22 +6,25 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 01:05:33 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/04 22:15:45 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/04 22:54:46 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/push.h"
 
-void	free_stack(t_list *stack)
+void	free_stack(t_list **stack)
 {
 	t_list	*tmp;
+	t_list	*current;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
-	tmp = stack;
-	while (tmp)
+	current = *stack;
+	tmp = current;
+	while (current)
 	{
-		free(tmp);
-		tmp = tmp->next;
+		tmp = current->next;
+		free(current);
+		current = tmp;
 	}
 }

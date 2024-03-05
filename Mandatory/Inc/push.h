@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:48:28 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/04 22:11:17 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/05 17:50:51 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		position(t_list *node, t_list *stack);
 
 void	two_sort(t_list **lst);
 void	three_sort(t_list **lst);
-void	free_stack(t_list *stack);
+void	free_stack(t_list **stack);
 
 void	swap(t_list **lst, int flag);
 void	ss(t_list **stack_a, t_list **stack_b);
@@ -61,15 +61,14 @@ void	sorting_algo(t_list **stack_a, t_list **stack_b);
 void	init_stack_a(t_list *stack_a, t_list *stack_b);
 void	init_stack_b(t_list *stack_b, t_list *stack_a);
 void	rr_a(t_list **stack_a, t_list **stack_b, t_list *node, t_list *target);
-void	rrr_n(t_list **stack_a, t_list **stack_b, t_list *node, t_list *target);
+void	rrrn(t_list **stack_a, t_list **stack_b, t_list *node, t_list *target);
 void	rra(t_list *node, t_list **stack);
 void	rrb(t_list *node, t_list **stack);
-void	push_b(t_list *node_a, t_list **stack_a, t_list *node_b, t_list **stack_b);
-void	push_a(t_list *node_b, t_list **stack_b, t_list *node_a, t_list **stack_a);
+void	p_b(t_list *node_a, t_list **stack_a, t_list *node_b, t_list **stack_b);
+void	p_a(t_list *node_b, t_list **stack_b, t_list *node_a, t_list **stack_a);
 
 t_list	*max_node(t_list *stack);
 t_list	*min_node(t_list *stack);
 t_list	*cheapest_node(t_list *stack);
-
 
 #endif

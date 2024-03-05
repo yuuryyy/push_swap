@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:31:49 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/04 16:19:32 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/05 17:30:41 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	rra(t_list *node, t_list **stack)
 	while (node != *stack)
 		reverse_rotate(stack, RRA);
 }
+
 void	rrb(t_list *node, t_list **stack)
 {
 	if (!node || !*stack || !stack)
