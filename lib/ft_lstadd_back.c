@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 01:43:19 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/06 23:15:14 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/07 18:32:09 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*ptr = NULL;
+	t_list	*ptr;
 
 	if (!lst || !new)
 		return ;
@@ -24,10 +24,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	ptr = ft_lstlast(*lst);
-	if (!ptr)
-		return;
 	ptr->next = new;
-	
 }
 
 //int main()

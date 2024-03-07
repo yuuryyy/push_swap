@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:33:56 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/07 18:24:23 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/07 18:29:43 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	exec_instructions(t_list **stack_a, t_list **stack_b, char *str)
 	else if (ft_strncmp(str, "rrb\n", 4) == 0)
 		reverse_rotate(stack_b, 5);
 	else if (ft_strncmp(str, "rrr\n", 4) == 0)
-		rrr(stack_a,stack_b, 5);
+		rrr(stack_a, stack_b, 5);
 	else
 		return (0);
 	return (1);
@@ -59,21 +59,17 @@ int	checker(char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	
+
 	stack_b = NULL;
 	stack_a = NULL;
 	if (!check_n_fill(&stack_a, av))
-		return (0);
+		return (free_stack(&stack_a), 0);
 	if (!get_instructions(&stack_a, &stack_b))
-		return (0);
-	//while (stack_a)
-	//{
-	//	printf("----%d\n", stack_a->content);
-	//	stack_a = stack_a->next;
-	//}
+		return (free_stack(&stack_a), 0);
 	if (!a_is_sorted(stack_a) && !stack_b)
 		ft_putstr_fd("OK\n", 1);
 	else if (a_is_sorted(stack_a) || stack_b)
 		ft_putstr_fd("KO\n", 1);
+	free_stack(&stack_a);
 	return (1);
 }
