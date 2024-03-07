@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 01:37:18 by ychagri           #+#    #+#             */
-/*   Updated: 2023/11/09 14:41:47 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/06 23:15:18 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*lastnode;
+	t_list *tmp;
 
-	lastnode = lst;
-	while (lst != NULL)
-	{
-		lastnode = lst;
-		lst = lst->next;
-	}
-	return (lastnode);
+	if (!lst)
+		return (NULL);
+	tmp = lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
 }

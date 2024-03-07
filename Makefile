@@ -6,18 +6,24 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 22:56:18 by ychagri           #+#    #+#              #
-#    Updated: 2024/03/04 22:48:49 by ychagri          ###   ########.fr        #
+#    Updated: 2024/03/07 17:47:25 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := push_swap
 
+NAME_B := checker
+
 CC := cc
 
-CFLAGS := -g -Wall -Werror 
-#-Wextra -fsanitize=address
+CFLAGS := -g -Wall -Werror -Wextra -fsanitize=address
+
 SRCS	:= Mandatory/main.c \
-		   Mandatory/Rules/push.c \
+		   Mandatory/Sorting/2_elem_sort.c \
+		   Mandatory/Sorting/3_elem_sort.c \
+		   Mandatory/Sorting/sorting_algo.c \
+
+SRCS_G :=  Mandatory/Rules/push.c \
 		   Mandatory/Rules/rotate.c \
 		   Mandatory/Rules/rr.c \
 		   Mandatory/Rules/swap.c \
@@ -26,9 +32,6 @@ SRCS	:= Mandatory/main.c \
 		   Mandatory/Rules/rrr.c \
 		   Mandatory/parse/valid_arg.c \
 		   Mandatory/parse/fill_stack.c \
-		   Mandatory/Sorting/2_elem_sort.c \
-		   Mandatory/Sorting/3_elem_sort.c \
-		   Mandatory/Sorting/sorting_algo.c \
 		   Mandatory/tools/A_is_sorted.c \
 		   Mandatory/tools/free_stack.c \
 		   Mandatory/tools/max_node.c \
@@ -38,37 +41,45 @@ SRCS	:= Mandatory/main.c \
 		   Mandatory/tools/nude_cost.c \
 		   Mandatory/tools/init_stack.c \
 		   Mandatory/tools/cheapest_node.c
+		   
+SRCS_B	:=	bonus/Get_next_line/get_next_line_utils.c \
+			bonus/Get_next_line/get_next_line.c \
+			bonus/checker.c \
+			bonus/main.c \
+			
+OBJS_B	:= $(SRCS_B:.c=.o)
 
 OBJS 	:= $(SRCS:.c=.o)
 
+OBJ_G 	:= $(SRCS_G:.c=.o)
+
 LIBRARY := lib/libft.a
 
-arg := 0
-
 all	: $(NAME)
+
+bonus : $(NAME_B)
+
+$(NAME): $(OBJ_G) $(OBJS) lib
+	$(CC) $(CFLAGS) $(LIBRARY) $(OBJ_G) $(OBJS) -o $(NAME)
+
+$(NAME_B): $(OBJ_G) $(OBJS_B) lib
+	$(CC) $(CFLAGS) $(LIBRARY) $(OBJ_G) $(OBJS_B) -o $(NAME_B)
+	
+%.o : %.c push.h
+	$(CC) $(CFLAGS)  $< -o $@ -c
 	
 lib :
 	make -C lib
 
-$(NAME): $(OBJS) lib
-	$(CC) $(CFLAGS) $(LIBRARY) $(OBJS) -o $(NAME)
-
-%.o : %.c push.h
-	$(CC) $(CFLAGS) -c -o $@ $<
-
 clean:
 	make clean -C lib
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(OBJ_G) $(OBJS_B)
 
 fclean: clean
 	make fclean -C lib
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(NAME_B)
 
 re : fclean all 
-
-test : 
-	@echo "               ______________TEST______________              "
-	./push_swap $(arg) 
 
 push : fclean
 	git add .
@@ -76,4 +87,5 @@ push : fclean
 	git commit -m "push_swap_fixs"
 	git push
 
-.PHONY: clean re fclean lib
+
+.PHONY: clean re fclean lib bonus

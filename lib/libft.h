@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 19:08:16 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/29 22:15:51 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/06 19:49:03 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 typedef struct s_list
 {
-	int				content; 
-	struct s_list	*next; 
+	int				content;
+	struct s_list	*next;
 	struct s_list	*target_node;
 	int				index;
 	int				cost;
@@ -33,6 +33,7 @@ int		ft_lstsize(t_list *lst);
 
 char	*ft_strjoin(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);

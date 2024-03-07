@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:47 by ychagri           #+#    #+#             */
-/*   Updated: 2024/02/26 20:02:44 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/07 17:34:30 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	check_n_fill(t_list **stack_a, char **av)
 	if (!split || !limit(split))
 		return (0);
 	while (split[i])
-		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(split[i++])));
+		ft_lstadd_back(stack_a,ft_lstnew(ft_atoi(split[i++])));
 	free_array(split);
 	free(split);
 	if (!checkdouble(*stack_a))

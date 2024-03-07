@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 01:10:21 by ychagri           #+#    #+#              #
-#    Updated: 2024/02/26 18:28:57 by ychagri          ###   ########.fr        #
+#    Updated: 2024/03/06 18:19:43 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC = ft_isdigit.c ft_split.c \
 		ft_atoi.c ft_putstr_fd.c \
 		ft_strlen.c \
 		ft_strjoin.c\
-		ft_lstnew.c  \
+		ft_lstnew.c  ft_strncmp.c \
 		ft_lstadd_front.c ft_lstadd_back.c ft_lstsize.c ft_lstlast.c \
 
 OBJS = $(SRC:.c=.o)
