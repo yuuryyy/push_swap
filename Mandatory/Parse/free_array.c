@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 15:20:57 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/12 21:41:57 by ychagri          ###   ########.fr       */
+/*   Created: 2024/03/12 21:34:07 by ychagri           #+#    #+#             */
+/*   Updated: 2024/03/12 21:34:19 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Mandatory/Inc/push.h"
+#include "../Inc/push.h"
 
-int	main(int ac, char **av)
+void	free_array(char **str)
 {
-	if (!valid_arg(ac, av) || valid_arg(ac, av) == 2)
+	int	i;
+
+	i = 0;
+	if (!str || !*str)
+		return ;
+	while (str[i])
 	{
-		if (!valid_arg(ac, av))
-			return (ft_putstr_fd("Error\n", 2), 1);
-		else
-			exit(0);
+		free(str[i]);
+		str[i] = NULL;
+		i++;
 	}
-	if (!checker(av))
-		return (ft_putstr_fd("Error\n", 2), 1);
-	return (0);
 }

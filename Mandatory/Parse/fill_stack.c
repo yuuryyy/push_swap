@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:47 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/09 21:42:23 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/12 21:33:54 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,22 @@ int	checkdouble(t_list *lst)
 	return (1);
 }
 
-void	free_array(char **str)
+int	limit2(char *str)
 {
 	int	i;
+	int	k;
 
+	if (!str)
+		return (0);
 	i = 0;
-	if (!str || !*str)
-		return ;
-	while (str[i])
-	{
-		free(str[i]);
-		str[i] = NULL;
+	while (str[i] == ' ')
 		i++;
-	}
+	k = i;
+	while ((str[i] >= '0' && str[i] <= '9') || str[i] == '-' || str[i] == '+' )
+		i++;
+	if (i - k > 11)
+		return (0);
+	return (1);
 }
 
 int	limit(char **str)
@@ -53,7 +56,14 @@ int	limit(char **str)
 	int	i;
 
 	if (!str || !*str)
-		return (1);
+		return (0);
+	i = 0;
+	while (str[i])
+	{
+		if (!limit2(str[i]))
+			return (0);
+		i++;
+	}
 	i = 0;
 	while (str[i])
 	{

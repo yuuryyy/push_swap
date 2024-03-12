@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 18:44:01 by ychagri           #+#    #+#              #
-#    Updated: 2024/03/07 23:39:33 by ychagri          ###   ########.fr        #
+#    Updated: 2024/03/12 21:35:02 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS_G :=  Mandatory/Rules/push.c \
 		   Mandatory/Rules/rrr.c \
 		   Mandatory/parse/valid_arg.c \
 		   Mandatory/parse/fill_stack.c \
+		   Mandatory/Parse/free_array.c \
 		   Mandatory/tools/A_is_sorted.c \
 		   Mandatory/tools/free_stack.c \
 		   Mandatory/tools/max_node.c \

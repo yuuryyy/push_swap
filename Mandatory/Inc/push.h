@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:48:28 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/12 02:55:52 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/12 21:34:38 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	three_sort(t_list **lst);
 void	free_stack(t_list **stack);
 
 void	swap(t_list **lst, int flag);
+void	free_array(char **str);
 void	ss(t_list **stack_a, t_list **stack_b, int flag);
 void	push(t_list **from, t_list **to, int flag);
 void	rotate(t_list **lst, int flag);
