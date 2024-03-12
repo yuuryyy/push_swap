@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 19:08:16 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/06 19:49:03 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/07 23:44:51 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_list
 	int				content;
 	struct s_list	*next;
 	struct s_list	*target_node;
-	int				index;
 	int				cost;
 	int				pos;
 }					t_list;

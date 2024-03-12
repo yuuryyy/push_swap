@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 18:44:01 by ychagri           #+#    #+#              #
-#    Updated: 2024/03/07 18:44:03 by ychagri          ###   ########.fr        #
+#    Updated: 2024/03/07 23:39:33 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_B := checker
 
 CC := cc
 
-CFLAGS := -g -Wall -Werror -Wextra -fsanitize=address
+CFLAGS := -Wall -Werror -Wextra
 
 SRCS	:= Mandatory/main.c \
 		   Mandatory/Sorting/2_elem_sort.c \
@@ -59,17 +59,17 @@ all	: $(NAME)
 
 bonus : $(NAME_B)
 
+lib :
+	make -C lib
+
 $(NAME): $(OBJ_G) $(OBJS) lib
 	$(CC) $(CFLAGS) $(LIBRARY) $(OBJ_G) $(OBJS) -o $(NAME)
 
 $(NAME_B): $(OBJ_G) $(OBJS_B) lib
 	$(CC) $(CFLAGS) $(LIBRARY) $(OBJ_G) $(OBJS_B) -o $(NAME_B)
-	
-%.o : %.c push.h
-	$(CC) $(CFLAGS)  $< -o $@ -c
-	
-lib :
-	make -C lib
+
+%.o : %.c Mandatory/Inc/push.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	make clean -C lib
@@ -80,12 +80,5 @@ fclean: clean
 	rm -rf $(NAME) $(NAME_B)
 
 re : fclean all 
-
-push : fclean
-	git add .
-	git status
-	git commit -m "push_swap_fixs"
-	git push
-
 
 .PHONY: clean re fclean lib bonus

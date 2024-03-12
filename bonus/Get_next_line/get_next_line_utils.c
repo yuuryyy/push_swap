@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:50:03 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/07 18:50:16 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:27:23 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,3 @@ int	ft_strchr(const char *s, int c)
 		return (1);
 	return (0);
 }
-

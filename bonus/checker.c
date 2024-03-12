@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:33:56 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/07 20:21:03 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:38:07 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,11 @@ int	get_instructions(t_list **stack_a, t_list **stack_b)
 	while (line)
 	{
 		if (!exec_instructions(stack_a, stack_b, line))
-			return (0);
+			return (free(line), 0);
+		free(line);
 		line = get_next_line(0);
 	}
+	free(line);
 	return (1);
 }
 
@@ -69,7 +71,8 @@ int	checker(char **av)
 	if (!a_is_sorted(stack_a) && !stack_b)
 		ft_putstr_fd("OK\n", 1);
 	else if (a_is_sorted(stack_a) || stack_b)
-		ft_putstr_fd("KO\n", 1);
+		ft_putstr_fd("KO\n", 2);
 	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (1);
 }

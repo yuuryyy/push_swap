@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 01:10:21 by ychagri           #+#    #+#              #
-#    Updated: 2024/03/06 18:19:43 by ychagri          ###   ########.fr        #
+#    Updated: 2024/03/12 02:56:04 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
-
 
 fclean: clean
 	rm -f $(NAME)

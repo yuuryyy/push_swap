@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:47 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/07 18:32:59 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/09 21:42:23 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,26 +64,37 @@ int	limit(char **str)
 	return (1);
 }
 
+void	join(char **av, char **str)
+{
+	int		i;
+
+	if (!av || !str || !*str || !*av)
+		return ;
+	i = 1;
+	while (av[i])
+	{
+		*str = ft_strjoin(*str, av[i]);
+		i++;
+	}
+}
+
 int	check_n_fill(t_list **stack_a, char **av)
 {
 	int		i;
 	char	*str;
 	char	**split;
 
-	i = 1;
 	str = malloc(1);
+	if (!str)
+		return (0);
 	split = NULL;
 	str[0] = '\0';
-	while (av[i])
-	{
-		str = ft_strjoin(str, av[i]);
-		i++;
-	}
+	join(av, &str);
 	i = 0;
 	split = ft_split(str, ' ');
 	free(str);
 	if (!split || !limit(split))
-		return (0);
+		return (free_array(split), free(split), 0);
 	while (split[i])
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(split[i++])));
 	free_array(split);

@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:48:28 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/07 18:12:41 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/03/12 02:55:52 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include <limits.h>
 # include <stdbool.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
-# endif
+# define BUFFER_SIZE 10
 
 # define TRUE 1
 # define FALSE 0
