@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:49:56 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/04 00:26:21 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/06/15 16:20:56 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 int	position(t_list *node, t_list *stack)
 {
 	t_list	*tmp;
-	int		size;
 	int		i;
 
 	tmp = stack;
 	if (!node || !stack)
 		return (0);
-	size = ft_lstsize(tmp);
 	i = 0;
 	while (tmp != node)
 	{
